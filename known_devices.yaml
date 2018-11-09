@@ -1,0 +1,7 @@
+oneplus_thomasphone:
+  hide_if_away: false
+  icon:
+  mac:
+  name: OnePlus
+  picture:
+  track: true

@@ -1,0 +1,197 @@
+#https://home-assistant.io/components/script/
+
+####################################################
+#                                                  #
+#                 TELENET REMOTE                   #
+#                                                  #
+####################################################
+
+  telenetaanuit:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "AANUIT"
+          
+  teleneteen:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "EEN"
+          
+  telenettwee:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "TWEE"
+          
+  telenetdrie:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "DRIE"
+          
+  telenetvier:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "VIER"
+          
+  telenetvijf:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "VIJF"
+          
+  telenetzes:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "ZES"
+          
+  telenetzeven:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "ZEVEN"
+          
+  telenetacht:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "ACHT"
+          
+  telenetnegen:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "NEGEN"
+          
+  telenetnul:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "NUL"
+          
+  telenetrood:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "ROOD"
+          
+  telenettxt:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "TXT"
+          
+          
+  telenetvolup:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "VOLUP"
+          
+  telenetvoldown:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "VOLDOWN"
+          
+  telenethome:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "HOME"
+          
+  telenetchup:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "CHUP"
+          
+  telenetchdown:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "CHDOWN"
+          
+  telenetback:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "BACK"
+          
+  telenetup:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "UP"
+          
+  telenetdown:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "DOWN"
+          
+  telenetright:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "RIGHT"
+          
+  telenetleft:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "LEFT"
+          
+  telenetok:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "OK"
+          
+  telenetbackw:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "BACKW"
+          
+  telenetplay:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "PLAY"
+          
+  telenetforw:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "TVRemoteNode"
+          payload: "FORW"

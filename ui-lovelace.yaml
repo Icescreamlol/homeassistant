@@ -1,0 +1,342 @@
+title: Assistent van het huis
+# Include external resources
+resources:
+  - url: /local/my-custom-card.js
+    type: js
+  - url: /local/my-webfont.css
+    type: css
+  - url: /local/button-card.js
+    type: module
+
+# Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
+background: center / cover no-repeat url("/background.png") fixed
+# Exclude entities from "Unused entities" view
+excluded_entities:
+  - weblink.router
+views:
+    # Specify a tab icon if you want the view tab to be an icon.
+  - id: 0  # Automatically created id
+    icon: mdi:home-assistant
+    # Title of the view. Will be used as the tooltip for tab icon
+    title: Home
+    cards:
+      - id: cbf0cf97941f421bbe790905d12c7561  # Automatically created id
+        type: markdown
+        title: Gegroet!
+        content: >
+          Welkom op de home-assistant van **Lindsy**, **Thomas** & **Jules**. 
+
+# - id: f4c662be8ce44a1ebaadf0e2228a7199  # Automatically created id
+# type: entities
+# title: Het weer op dit moment
+# entities:
+# - entity: sensor.weather_symbol
+# name: Symbool
+# - entity: sensor.weather_temperature
+# name: Temperatuur
+# - entity: sensor.weather_wind_speed
+# name: Windsnelheid
+# icon: mdi:weather-windy
+# - entity: sensor.weather_cloudiness
+# name: Wolken
+# icon: mdi:amazon-drive
+# - entity: sensor.weather_humidity
+# name: Luchtvochtigheid
+# icon: mdi:water-percent
+      - id: a466ccf13f104f76becc6af1233ea329  # Automatically created id
+        title: Weersverwachting
+        type: weather-forecast
+        entity: weather.weersverwachting
+
+        # Entities card will take a list of entities and show their state.
+    # View tab title.          
+  - id: 1  # Automatically created id
+    #title: Schakelaars
+    icon: mdi:toggle-switch
+    cards:
+      - id: 4769225e6cbf4dd9aa7097e65a0c9617  # Automatically created id
+        type: entities
+        title: Woonkamer
+        show_header_toggle: true
+        entities:
+          - entity: switch.tv_led_schakelaar
+            #break_slider: true
+            name: LED Bolletjes TV
+
+  - id: 2  # Automatically created id
+    icon: mdi:remote
+    cards:
+      - id: bc7536bd9e1c4ad3b2f07a1c8bbf7d1c  # Automatically created id
+        type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                entity: script.teleneteen
+                color_type: card
+                color_off: rgb(66, 134, 244)
+                icon: mdi:numeric-1-box-outline
+              - type: custom:button-card
+                entity: script.telenettwee
+                color_type: card
+                color_off: rgb(66, 134, 244)
+                icon: mdi:numeric-2-box-outline
+              - type: custom:button-card
+                entity: script.telenetdrie
+                color_type: card
+                color_off: rgb(66, 134, 244)
+                icon: mdi:numeric-3-box-outline
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                entity: script.telenetvier
+                color_type: card
+                color_off: rgb(66, 134, 244)
+                icon: mdi:numeric-4-box-outline
+              - type: custom:button-card
+                entity: script.telenetvijf
+                color_type: card
+                color_off: rgb(66, 134, 244)
+                icon: mdi:numeric-5-box-outline
+              - type: custom:button-card
+                entity: script.telenetzes
+                color_type: card
+                color_off: rgb(66, 134, 244)
+                icon: mdi:numeric-6-box-outline
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                entity: script.telenetzeven
+                color_type: card
+                color_off: rgb(66, 134, 244)
+                icon: mdi:numeric-7-box-outline
+              - type: custom:button-card
+                entity: script.telenetacht
+                color_type: card
+                color_off: rgb(66, 134, 244)
+                icon: mdi:numeric-8-box-outline
+              - type: custom:button-card
+                entity: script.telenetnegen
+                color_type: card
+                color_off: rgb(66, 134, 244)
+                icon: mdi:numeric-9-box-outline
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                entity: script.telenetvolup
+                color_type: card
+                color_off: rgb(66, 134, 244)
+                icon: mdi:volume-plus
+              - type: custom:button-card
+                entity: script.telenetnul
+                color_type: card
+                color_off: rgb(66, 134, 244)
+                icon: mdi:numeric-0-box-outline
+              - type: custom:button-card
+                entity: script.telenetchup
+                color_type: card
+                color_off: rgb(66, 134, 244)
+                icon: mdi:chevron-up-circle-outline
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                entity: script.telenetvoldown
+                color_type: card
+                color_off: rgb(66, 134, 244)
+                icon: mdi:volume-minus
+              - type: custom:button-card
+                entity: script.telenethome
+                color_type: card
+                color_off: rgb(66, 134, 244)
+                icon: mdi:home
+              - type: custom:button-card
+                entity: script.telenetchdown
+                color_type: card
+                color_off: rgb(66, 134, 244)
+                icon: mdi:chevron-down-circle-outline
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                color_type: blank-card
+              - type: custom:button-card
+                entity: script.telenetup
+                color_type: card
+                color_off: rgb(66, 134, 244)
+                icon: mdi:arrow-up-bold-outline
+              - type: custom:button-card
+                color_type: blank-card
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                entity: script.telenetleft
+                color_type: card
+                color_off: rgb(66, 134, 244)
+                icon: mdi:arrow-left-bold-outline
+              - type: custom:button-card
+                entity: script.telenetok
+                color_type: card
+                color_off: rgb(66, 134, 244)
+                icon: mdi:check-circle-outline
+              - type: custom:button-card
+                entity: script.telenetright
+                color_type: card
+                color_off: rgb(66, 134, 244)
+                icon: mdi:arrow-right-bold-outline
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                entity: script.telenetback
+                color_type: card
+                color_off: rgb(66, 134, 244)
+                icon: mdi:backup-restore
+              - type: custom:button-card
+                entity: script.telenetdown
+                color_type: card
+                color_off: rgb(66, 134, 244)
+                icon: mdi:arrow-down-bold-outline
+              - type: custom:button-card
+                color_type: blank-card
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                entity: script.telenetbackw
+                color_type: card
+                color_off: rgb(66, 134, 244)
+                icon: mdi:skip-backward
+              - type: custom:button-card
+                entity: script.telenetplay
+                color_type: card
+                color_off: rgb(66, 134, 244)
+                icon: mdi:play-pause
+              - type: custom:button-card
+                entity: script.telenetforw
+                color_type: card
+                color_off: rgb(66, 134, 244)
+                icon: mdi:skip-forward
+          - type: custom:button-card
+            entity: script.telenetaanuit
+            color_type: card
+            color_off: rgb(44, 109, 214)
+            icon: mdi:power
+
+
+  - id: 3  # Automatically created id
+    icon: mdi:google-chrome
+    cards:
+      - id: fac99d3726e54720b9cd4ddb712b742b  # Automatically created id
+        type: media-control
+        entity: media_player.icescream
+
+    #title: Boiler Info
+  - id: 4  # Automatically created id
+    icon: mdi:radiator
+    cards:
+      - id: 79cb3cafdd094830b4d0d90df3861add  # Automatically created id
+        type: entities
+        title: Boiler Info
+        # The entities here will be shown in the same order as specified.
+        # Each entry is an entity ID or a map with extra options.
+        entities:
+          - entity: sensor.cv_binnen_temp
+            name: Gemeten Temperatuur Woonkamer
+          - entity: sensor.cv_set_temp
+            name: Ingestelde Temperatuur Woonkamer
+          - entity: sensor.cv_buiten_temp
+            name: Temperatuur Buiten
+          - entity: sensor.cv_boiler_mode
+            name: Verwarmingsmodus
+          - entity: sensor.cv_boiler_temp
+            name: Gemeten Water Temperatuur
+          - entity: sensor.cv_water_temp
+            name: Ingestelde Water Temperatuur
+
+      #- id: e996a9c079274243a32d1b07d1c6f3ab  # Automatically created id
+      #  type: sensor
+      #  entity: sensor.cv_buiten_temp
+      #  name: Buitentemperatuur
+      #  height: 75
+      #  line_color: '#3498db'
+      #  hours_to_show: 24
+      #  accuracy: 1440
+      #  graph: line
+
+  - id: 5  # Automatically created id
+    icon: mdi:map-marker
+    cards:
+    
+      - id: 323413cb09994fc5a3ab1f3ed615ef65  # Automatically created id
+        type: sensor
+        entity: sensor.batterij_thomas_gsm
+        name: Batterij GSM Thomas
+        height: 75
+        line_color: '#3498db'
+        hours_to_show: 24
+        
+      - id: 4dd4670d224c42e7bf74f522a712bea9  # Automatically created id
+        type: map
+        default_zoom: 16
+        entities:
+          - entity: device_tracker.oneplus_thomasphone
+        title: Waar is Thomas?
+
+
+
+
+      # - id: 2c5bc9b3ee6644ccbb87c7d8ca498cf2  # Automatically created id
+        # type: map
+        # entities:
+          # - entity: device_tracker.lindsy
+        # title: Waar is Lindsy?
+
+#title: Server Info
+  - id: 6  # Automatically created id
+    icon: mdi:server
+    cards:
+      - id: 02010098b8dd4e0b8164cbf9c95bcd3b  # Automatically created id
+        type: entities
+        title: Server Info
+        # The entities here will be shown in the same order as specified.
+        # Each entry is an entity ID or a map with extra options.
+        entities:
+          - entity: sensor.processor_use
+            name: Processor
+          - entity: sensor.cpu_temp
+            name: CPU Temperatuur
+          - entity: sensor.memory_use_percent
+            name: Memory
+            icon: mdi:chip
+          - entity: sensor.disk_use_percent_home
+            name: Disk Use
+            icon: mdi:harddisk
+          - entity: sensor.load_1m
+            icon: mdi:speedometer
+          - entity: sensor.load_5m
+            icon: mdi:speedometer
+          - entity: sensor.since_last_boot_templated
+            name: Last Boot
+            icon: mdi:clock
+
+      - id: 5d64bbfb2c0d414faf1d0df575fad0a0  # Automatically created id
+        type: entities
+        title: Server Network Info
+        entities:
+          - entity: sensor.network_in_eth0
+            name: Network In
+          - entity: sensor.network_out_eth0
+            name: Network Out
+          - entity: sensor.speedtest_download
+            name: Download
+          - entity: sensor.speedtest_upload
+            name: Upload
+
+      - id: 2b12b0d362a0480181f1fb849b18cd68  # Automatically created id
+        type: entities
+        title: Home Assistant Version
+        entities:
+          - entity: sensor.installed_version
+            name: Installed
+            icon: mdi:folder-download
+          - entity: sensor.latest_version
+            name: Latest Release
+            icon: mdi:github-circle
+

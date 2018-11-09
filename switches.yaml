@@ -1,0 +1,54 @@
+
+#https://home-assistant.io/components/switch/
+
+####################################################
+#                                                  #
+#             BROADLINK IR SWITCHES                #
+#                                                  #
+####################################################
+
+#https://home-assistant.io/components/switch.broadlink/
+
+
+####################################################
+#                                                  #
+#             COMMAND lINE SWITCHES                #
+#                                                  #
+####################################################
+
+#https://www.home-assistant.io/components/switch.command_line/
+#https://community.home-assistant.io/t/pi-hole-switch/22004
+
+
+####################################################
+#                                                  #
+#                      MQTT                        #
+#                                                  #
+####################################################
+  - platform: mqtt
+    name: "TV LED Schakelaar"
+    state_topic: "TVNodeLED"
+    command_topic: "TVNodeLED"
+    payload_on: "1"
+    payload_off: "0"
+    
+  - platform: mqtt
+    name: "Telenet AANUIT"
+    command_topic: "TVRemoteNode"
+    qos: 1
+    payload_on: "AANUIT"
+
+####################################################
+#                                                  #
+#             WAKE ON LAN SWITCHES                 #
+#                                                  #
+####################################################
+
+#https://home-assistant.io/components/switch.wake_on_lan/
+
+
+####################################################
+#                                                  #
+#           END OF CONFIGURATION FILE              #
+#                                                  #
+####################################################

@@ -1,0 +1,22 @@
+#https://home-assistant.io/components/device_tracker/
+
+####################################################
+#                                                  #
+#              DEVICE TRACKER - Owntracks           #
+#                                                  #
+####################################################
+
+#https://www.home-assistant.io/components/device_tracker.owntracks/
+
+  - platform: owntracks
+    max_gps_accuracy: 200
+    waypoints: true
+    mqtt_topic: "owntracks/#"
+    #events_only: true
+    waypoint_whitelist:
+      - OnePlus      
+####################################################
+#                                                  #
+#            END OF CONFIGUATION FILE              #
+#                                                  #
+####################################################

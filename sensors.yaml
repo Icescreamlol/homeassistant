@@ -1,0 +1,189 @@
+
+####################################################
+#                                                  #
+#                    FILESIZE                      #
+#                                                  #
+####################################################
+
+#https://www.home-assistant.io/components/sensor.filesize/
+#  - platform: filesize
+#    file_paths:
+#      - /config/home-assistant_v2.db
+#      - /config/home-assistant.log
+     
+####################################################
+#                                                  #
+#                    MQTT                          #
+#                                                  #
+####################################################
+
+#https://www.home-assistant.io/components/sensor.mqtt/ 
+      
+  # - platform: mqtt
+    # name: "Temperatuur Woonkamer"
+    # state_topic: "TVNodeTemp"
+    # unit_of_measurement: '°C'
+  # - platform: mqtt
+    # name: "Luchtvochtigheid Woonkamer"
+    # state_topic: "TVNodeHum"
+    # unit_of_measurement: '%'
+  - platform: mqtt
+    name: "CV Boiler Temp"
+    state_topic: "CVData"
+    unit_of_measurement: '°C'
+    value_template: "{{ value_json.BoilerTemp }}"
+  - platform: mqtt
+    name: "CV Buiten Temp"
+    state_topic: "CVData"
+    unit_of_measurement: '°C'
+    value_template: "{{ value_json.OutsideTemp }}"
+  - platform: mqtt
+    name: "CV Water Temp"
+    state_topic: "CVData"
+    unit_of_measurement: '°C'
+    value_template: "{{ value_json.WaterTemp }}"
+  - platform: mqtt
+    name: "CV Binnen Temp"
+    state_topic: "CVData"
+    unit_of_measurement: '°C'
+    value_template: "{{ value_json.InsideTemp }}"
+  - platform: mqtt
+    name: "CV Boiler Mode"
+    state_topic: "CVData"
+    unit_of_measurement: ''
+    value_template: "{{ value_json.BoilerMode }}"
+  - platform: mqtt
+    name: "CV Set Temp"
+    state_topic: "CVData"
+    unit_of_measurement: '°C'
+    value_template: "{{ value_json.SetTemp }}"
+  - platform: mqtt
+    state_topic: "owntracks/OnePlus/ThomasPhone"
+    name: "Batterij Thomas GSM"
+    unit_of_measurement: "%"
+    value_template: '{{ value_json.batt }}'
+    device_class: battery
+      
+ ####################################################
+#                                                  #
+#                      REST                        #
+#                                                  #
+####################################################
+
+#https://www.home-assistant.io/components/sensor.rest/
+  - platform: rest
+    resource: https://pypi.python.org/pypi/homeassistant/json
+    name: Latest Version
+    value_template: "{{ value_json.info.version }}"
+    scan_interval: 3600
+    
+    
+####################################################
+#                                                  #
+#                   SPEETEST                       #
+#                                                  #
+####################################################
+
+#https://www.home-assistant.io/components/sensor.speedtest/
+  - platform: speedtest
+    server_id: 4320
+    monitored_conditions:
+      - download
+      - upload
+      
+####################################################
+#                                                  #
+#                 SYSTEM MONITOR                   #
+#                                                  #
+####################################################
+
+#https://home-assistant.io/components/sensor.systemmonitor/
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /home
+      - type: memory_use_percent
+      - type: processor_use
+      - type: since_last_boot
+      - type: network_in
+        arg: eth0
+      - type: network_out
+        arg: eth0
+      - type: load_1m
+      - type: load_5m
+      
+  - platform: command_line
+    name: CPU Temp
+    command: "/bin/cat /sys/class/thermal/thermal_zone0/temp"
+    unit_of_measurement: "ºC"
+    value_template: '{{ value | multiply(0.001) }}'
+
+      
+####################################################
+#                                                  #
+#                      TEMPLATE                    #
+#                                                  #
+####################################################
+
+#https://home-assistant.io/components/sensor.template/
+  - platform: template
+    sensors:
+      since_last_boot_templated:
+        value_template: >-
+          {%- set slb = states.sensor.since_last_boot.state.split(' ') -%}
+          {%- set count = slb | length -%}
+          {%- set hms = slb[count - 1] -%}
+          {%- set hms_trimmed = hms.split('.')[0] -%}
+          {%- set hms_split = hms_trimmed.split(':') -%}
+          {%- set hours = hms_split[0] | int -%}
+          {%- if count == 3 -%}
+            {{ slb[0] ~ ' ' ~ slb[1] ~ ' ' }}
+          {%- endif -%}
+          {%- if hours > 0 -%}
+            {%- if hours == 1 -%}
+              1 hour
+            {%- else -%}
+              {{ hours }} hours
+            {%- endif -%}
+          {%- endif -%}
+
+
+####################################################
+#                                                  #
+#                   WEATHER                        #
+#                                                  #
+####################################################
+    
+ # Weather prediction
+  - platform: yr
+    name: Weather
+    monitored_conditions:
+      - temperature
+      - symbol
+      - precipitation
+      - windSpeed
+      - pressure
+      - windDirection
+      - humidity
+      - fog
+      - cloudiness
+      - lowClouds
+      - mediumClouds
+      - highClouds
+      - dewpointTemperature
+####################################################
+#                                                  #
+#                   VERSION                        #
+#                                                  #
+####################################################
+
+#https://www.home-assistant.io/components/sensor.version/
+  - platform: version
+    name: Installed Version
+
+
+####################################################
+#                                                  #
+#            END OF CONFIGURATION FILE             #
+#                                                  #
+####################################################
